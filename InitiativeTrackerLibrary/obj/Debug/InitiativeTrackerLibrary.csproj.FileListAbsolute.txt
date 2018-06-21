@@ -1,0 +1,8 @@
+C:\Users\JohnnyN\source\repos\InitiativeTracker\InitiativeTrackerLibrary\obj\Debug\InitiativeTrackerLibrary.csprojResolveAssemblyReference.cache
+C:\Users\JohnnyN\source\repos\InitiativeTracker\InitiativeTrackerLibrary\obj\Debug\InitiativeTrackerLibrary.csproj.CoreCompileInputs.cache
+C:\Users\JohnnyN\source\repos\InitiativeTracker\InitiativeTrackerLibrary\bin\Debug\InitiativeTrackerLibrary.dll
+C:\Users\JohnnyN\source\repos\InitiativeTracker\InitiativeTrackerLibrary\bin\Debug\InitiativeTrackerLibrary.pdb
+C:\Users\JohnnyN\source\repos\InitiativeTracker\InitiativeTrackerLibrary\bin\Debug\Dapper.dll
+C:\Users\JohnnyN\source\repos\InitiativeTracker\InitiativeTrackerLibrary\bin\Debug\Dapper.xml
+C:\Users\JohnnyN\source\repos\InitiativeTracker\InitiativeTrackerLibrary\obj\Debug\InitiativeTrackerLibrary.dll
+C:\Users\JohnnyN\source\repos\InitiativeTracker\InitiativeTrackerLibrary\obj\Debug\InitiativeTrackerLibrary.pdb
