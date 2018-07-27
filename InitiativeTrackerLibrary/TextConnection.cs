@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using InitiativeTrackerLibrary.Models;
 
+
 namespace InitiativeTrackerLibrary
 
 {
@@ -31,7 +32,7 @@ namespace InitiativeTrackerLibrary
             // Add the new record with the new ID (max + 1)
             characters.Add(model);
 
-            // Convert the prizes to list<string>
+            // Convert the Characters to list<string>
             // Save the list<string> to the text file
             characters.SaveToCharacterFile(CharactersFile);
 
@@ -39,11 +40,28 @@ namespace InitiativeTrackerLibrary
             // The model is were we added the currentId to, and now, it's the CharacterCreationModel fully formed with that Id.
             return model;
         }
-        //TODO Wire up the SaveCharacter for the text files.
+
+        //public CharacterCreationModel DeleteCharacter (CharacterCreationModel mod)
+        //{
+        //    List<CharacterCreationModel> charToDel = CharactersFile.FullFilePath().LoadFile().ConvertToCharacterCreationModels();
+        //    int currentId = 1;
+        //    if (charToDel.Count > 0)
+        //    {
+        //        currentId = charToDel.OrderByDescending(x => x.Id).First().Id + 1;
+        //    }
+        //    mod.Id = currentId;
+
+        //    charToDel.Remove(mod);
+        //    charToDel.Add(mod);
+
+        //    return mod;
+        //}
+
 
         public List<CharacterCreationModel> GetCharacter_All()
         {
             return CharactersFile.FullFilePath().LoadFile().ConvertToCharacterCreationModels();
+
         }
     }
 }

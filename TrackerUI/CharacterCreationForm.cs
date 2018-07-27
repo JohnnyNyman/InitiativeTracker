@@ -14,6 +14,8 @@ namespace TrackerUI
 {
     public partial class CharacterCreationForm : Form
     {
+        public event RefreshHandler RefreshList;
+        public delegate void RefreshHandler(object sender, EventArgs d);
         public CharacterCreationForm()
         {
             InitializeComponent();
@@ -24,20 +26,23 @@ namespace TrackerUI
 
         }
 
+
+
         private void saveCharacterButton_Click(object sender, EventArgs e)
         {
             if (ValidateForm())
             {
+                string k = "0";
                 // This uses the overloaded constructor in CharacterCreationModel and aplying it to the text boxes in the form.
                 CharacterCreationModel model = new CharacterCreationModel(
                     nameTextBox.Text,
                     healthTextBox.Text,
                     iniModTextBox.Text,
-                    noteTextBox.Text);
+                    noteTextBox.Text,
+                    k);
 
-                //TODO GlobalConfig.Connections.SaveCharacter(model);
                // GlobalConfig.Connections.SaveCharacter(model);
-                foreach (IDataConnection db in GlobalConfig.Connections) //This creates a list of IDataConnection connections
+                foreach (IDataConnection db in GlobalConfig.Connections) //This creates a list of IDataConnection connections.
                 {
                     // This passes in model and returns a new model. Which can be saved or ignored.
                     db.SaveCharacter(model);
@@ -46,6 +51,11 @@ namespace TrackerUI
                 healthTextBox.Text = "0";
                 iniModTextBox.Text = "0";
                 noteTextBox.Text = "";
+
+                if(RefreshList != null)
+                {
+                    RefreshList(this, new EventArgs());
+                }
             }
             else
             {
@@ -80,6 +90,14 @@ namespace TrackerUI
 
 
             return output;
+        }
+
+        private void goToCharacterListButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            //Program.OpenFormOnClose = false;
+            //this.Close();
+
         }
     }
 }

@@ -11,6 +11,8 @@ namespace InitiativeTrackerLibrary
     {
         CharacterCreationModel SaveCharacter(CharacterCreationModel model);
 
+        //CharacterCreationModel DeleteCharacter(CharacterCreationModel mod);
+
         List<CharacterCreationModel> GetCharacter_All();
     }
 }

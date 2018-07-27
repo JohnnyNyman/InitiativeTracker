@@ -34,7 +34,6 @@ namespace InitiativeTrackerLibrary
             return File.ReadAllLines(file).ToList();
         }
 
-
         //this is gonna take in a list of string from the lines from the text files. It's gonna spit out a list of CharacterCreationModel. Extension Method
         public static List<CharacterCreationModel> ConvertToCharacterCreationModels(this List<string> lines)
         {
@@ -51,6 +50,7 @@ namespace InitiativeTrackerLibrary
                 cc.CharHealth = int.Parse(colums[2]);
                 cc.CharIniMod = int.Parse(colums[3]);
                 cc.CharNote = colums[4];
+                cc.CharHiddenNr = int.Parse(colums[5]);
                 output.Add(cc);
             }
 
@@ -64,7 +64,7 @@ namespace InitiativeTrackerLibrary
 
             foreach (CharacterCreationModel c in models)
             {
-                lines.Add($" {c.Id},{c.CharName},{c.CharHealth},{c.CharIniMod},{c.CharNote}");
+                lines.Add($" {c.Id},{c.CharName},{c.CharHealth},{c.CharIniMod},{c.CharNote},{c.CharHiddenNr}");
             }
 
             File.WriteAllLines(fileName.FullFilePath(), lines);

@@ -17,6 +17,7 @@ namespace InitiativeTrackerLibrary.Models
         public int CharHealth { get; set; }
         public int CharIniMod { get; set; }
         public string CharNote { get; set; }
+        public int CharHiddenNr { get; set; }
 
         //This is an constructor
         public CharacterCreationModel()
@@ -25,7 +26,7 @@ namespace InitiativeTrackerLibrary.Models
         }
 
         //This is an overloaded constructor
-        public CharacterCreationModel(string charName, string charHealth, string charIniMod, string charNote)
+        public CharacterCreationModel(string charName, string charHealth, string charIniMod, string charNote, string charHiddenNr)
         {
             // This place the charName parimiter and placing it in the CharName property. 
             CharName = charName;
@@ -41,6 +42,11 @@ namespace InitiativeTrackerLibrary.Models
             CharIniMod = charIniModValue;
 
             CharNote = charNote;
+
+            int charHiddenNrValue = 0;
+            int.TryParse(charHiddenNr, out charHiddenNrValue);
+            CharHiddenNr = charHiddenNrValue;
+
         }
     }
 }

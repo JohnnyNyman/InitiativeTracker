@@ -59,6 +59,7 @@
             this.createCharacterButton.TabIndex = 1;
             this.createCharacterButton.Text = "Create Character";
             this.createCharacterButton.UseVisualStyleBackColor = true;
+            this.createCharacterButton.Click += new System.EventHandler(this.createCharacterButton_Click);
             // 
             // characterListBox
             // 
@@ -86,6 +87,7 @@
             this.deleteCharacterButton.TabIndex = 3;
             this.deleteCharacterButton.Text = "Delete Character";
             this.deleteCharacterButton.UseVisualStyleBackColor = true;
+            this.deleteCharacterButton.Click += new System.EventHandler(this.deleteCharacterButton_Click);
             // 
             // startInitiativeButton
             // 
@@ -100,6 +102,7 @@
             this.startInitiativeButton.TabIndex = 4;
             this.startInitiativeButton.Text = "Start Initiative";
             this.startInitiativeButton.UseVisualStyleBackColor = true;
+            this.startInitiativeButton.Click += new System.EventHandler(this.startInitiativeButton_Click);
             // 
             // CharacterListForm
             // 

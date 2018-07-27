@@ -15,7 +15,7 @@ namespace InitiativeTrackerLibrary
         {
             if (db == DataBaseType.TextFile)
             {
-                // TODO Create the Text Connection
+                //Creates the Text Connection
                 TextConnection text = new TextConnection();
                 Connections.Add(text);
             }

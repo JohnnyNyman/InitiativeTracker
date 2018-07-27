@@ -35,19 +35,18 @@
             this.initiativeNoteLabel = new System.Windows.Forms.Label();
             this.initiativeHealthLabel = new System.Windows.Forms.Label();
             this.initiativeNameLabel = new System.Windows.Forms.Label();
-            this.initiativeEffectsLabel = new System.Windows.Forms.Label();
             this.characterName = new System.Windows.Forms.Label();
             this.healthAmount = new System.Windows.Forms.Label();
             this.notes = new System.Windows.Forms.Label();
-            this.effects = new System.Windows.Forms.Label();
             this.addDamageButton = new System.Windows.Forms.Button();
-            this.addEffectButton = new System.Windows.Forms.Button();
             this.removeCharacterButton = new System.Windows.Forms.Button();
             this.characterDropDown = new System.Windows.Forms.ComboBox();
-            this.rollDiceButton = new System.Windows.Forms.Button();
-            this.diceDropDown = new System.Windows.Forms.ComboBox();
+            this.rollInitiativeButton = new System.Windows.Forms.Button();
             this.characterLabel = new System.Windows.Forms.Label();
-            this.diceLabel = new System.Windows.Forms.Label();
+            this.damageTextBox = new System.Windows.Forms.TextBox();
+            this.iniModLabel = new System.Windows.Forms.Label();
+            this.iniMod = new System.Windows.Forms.Label();
+            this.sortByIniModButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // headerLabel
@@ -71,6 +70,7 @@
             this.initiativeListBox.Name = "initiativeListBox";
             this.initiativeListBox.Size = new System.Drawing.Size(225, 240);
             this.initiativeListBox.TabIndex = 3;
+            this.initiativeListBox.SelectedIndexChanged += new System.EventHandler(this.initiativeListBox_SelectedIndexChanged);
             // 
             // initiativeList
             // 
@@ -100,7 +100,7 @@
             // initiativeNoteLabel
             // 
             this.initiativeNoteLabel.AutoSize = true;
-            this.initiativeNoteLabel.Location = new System.Drawing.Point(12, 419);
+            this.initiativeNoteLabel.Location = new System.Drawing.Point(12, 431);
             this.initiativeNoteLabel.Name = "initiativeNoteLabel";
             this.initiativeNoteLabel.Size = new System.Drawing.Size(59, 30);
             this.initiativeNoteLabel.TabIndex = 12;
@@ -110,7 +110,7 @@
             // initiativeHealthLabel
             // 
             this.initiativeHealthLabel.AutoSize = true;
-            this.initiativeHealthLabel.Location = new System.Drawing.Point(12, 389);
+            this.initiativeHealthLabel.Location = new System.Drawing.Point(12, 372);
             this.initiativeHealthLabel.Name = "initiativeHealthLabel";
             this.initiativeHealthLabel.Size = new System.Drawing.Size(74, 30);
             this.initiativeHealthLabel.TabIndex = 11;
@@ -119,25 +119,16 @@
             // initiativeNameLabel
             // 
             this.initiativeNameLabel.AutoSize = true;
-            this.initiativeNameLabel.Location = new System.Drawing.Point(12, 359);
+            this.initiativeNameLabel.Location = new System.Drawing.Point(12, 342);
             this.initiativeNameLabel.Name = "initiativeNameLabel";
             this.initiativeNameLabel.Size = new System.Drawing.Size(69, 30);
             this.initiativeNameLabel.TabIndex = 10;
             this.initiativeNameLabel.Text = "Name";
             // 
-            // initiativeEffectsLabel
-            // 
-            this.initiativeEffectsLabel.AutoSize = true;
-            this.initiativeEffectsLabel.Location = new System.Drawing.Point(12, 449);
-            this.initiativeEffectsLabel.Name = "initiativeEffectsLabel";
-            this.initiativeEffectsLabel.Size = new System.Drawing.Size(75, 30);
-            this.initiativeEffectsLabel.TabIndex = 13;
-            this.initiativeEffectsLabel.Text = "Effects";
-            // 
             // characterName
             // 
             this.characterName.AutoSize = true;
-            this.characterName.Location = new System.Drawing.Point(87, 359);
+            this.characterName.Location = new System.Drawing.Point(87, 342);
             this.characterName.Name = "characterName";
             this.characterName.Size = new System.Drawing.Size(88, 30);
             this.characterName.TabIndex = 14;
@@ -146,7 +137,7 @@
             // healthAmount
             // 
             this.healthAmount.AutoSize = true;
-            this.healthAmount.Location = new System.Drawing.Point(87, 389);
+            this.healthAmount.Location = new System.Drawing.Point(87, 372);
             this.healthAmount.Name = "healthAmount";
             this.healthAmount.Size = new System.Drawing.Size(88, 30);
             this.healthAmount.TabIndex = 15;
@@ -155,20 +146,11 @@
             // notes
             // 
             this.notes.AutoSize = true;
-            this.notes.Location = new System.Drawing.Point(87, 419);
+            this.notes.Location = new System.Drawing.Point(87, 431);
             this.notes.Name = "notes";
             this.notes.Size = new System.Drawing.Size(88, 30);
             this.notes.TabIndex = 16;
             this.notes.Text = "<none>";
-            // 
-            // effects
-            // 
-            this.effects.AutoSize = true;
-            this.effects.Location = new System.Drawing.Point(87, 449);
-            this.effects.Name = "effects";
-            this.effects.Size = new System.Drawing.Size(88, 30);
-            this.effects.TabIndex = 17;
-            this.effects.Text = "<none>";
             // 
             // addDamageButton
             // 
@@ -177,26 +159,13 @@
             this.addDamageButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.addDamageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addDamageButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addDamageButton.Location = new System.Drawing.Point(248, 389);
+            this.addDamageButton.Location = new System.Drawing.Point(248, 394);
             this.addDamageButton.Name = "addDamageButton";
             this.addDamageButton.Size = new System.Drawing.Size(181, 37);
             this.addDamageButton.TabIndex = 18;
             this.addDamageButton.Text = "Add Damage";
             this.addDamageButton.UseVisualStyleBackColor = true;
-            // 
-            // addEffectButton
-            // 
-            this.addEffectButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.addEffectButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.addEffectButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.addEffectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addEffectButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEffectButton.Location = new System.Drawing.Point(248, 448);
-            this.addEffectButton.Name = "addEffectButton";
-            this.addEffectButton.Size = new System.Drawing.Size(181, 37);
-            this.addEffectButton.TabIndex = 19;
-            this.addEffectButton.Text = "Add Effect";
-            this.addEffectButton.UseVisualStyleBackColor = true;
+            this.addDamageButton.Click += new System.EventHandler(this.addDamageButton_Click);
             // 
             // removeCharacterButton
             // 
@@ -222,29 +191,21 @@
             this.characterDropDown.Size = new System.Drawing.Size(181, 38);
             this.characterDropDown.TabIndex = 21;
             // 
-            // rollDiceButton
+            // rollInitiativeButton
             // 
-            this.rollDiceButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.rollDiceButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rollDiceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.rollDiceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rollDiceButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rollDiceButton.Location = new System.Drawing.Point(248, 304);
-            this.rollDiceButton.Name = "rollDiceButton";
-            this.rollDiceButton.Size = new System.Drawing.Size(181, 43);
-            this.rollDiceButton.TabIndex = 22;
-            this.rollDiceButton.Text = "Roll Dice";
-            this.rollDiceButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.rollDiceButton.UseVisualStyleBackColor = true;
-            // 
-            // diceDropDown
-            // 
-            this.diceDropDown.FormattingEnabled = true;
-            this.diceDropDown.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.diceDropDown.Location = new System.Drawing.Point(248, 260);
-            this.diceDropDown.Name = "diceDropDown";
-            this.diceDropDown.Size = new System.Drawing.Size(181, 38);
-            this.diceDropDown.TabIndex = 23;
+            this.rollInitiativeButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.rollInitiativeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.rollInitiativeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.rollInitiativeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rollInitiativeButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rollInitiativeButton.Location = new System.Drawing.Point(248, 286);
+            this.rollInitiativeButton.Name = "rollInitiativeButton";
+            this.rollInitiativeButton.Size = new System.Drawing.Size(181, 43);
+            this.rollInitiativeButton.TabIndex = 22;
+            this.rollInitiativeButton.Text = "Roll Initiative";
+            this.rollInitiativeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.rollInitiativeButton.UseVisualStyleBackColor = true;
+            this.rollInitiativeButton.Click += new System.EventHandler(this.rollInitiativeButton_Click);
             // 
             // characterLabel
             // 
@@ -256,35 +217,65 @@
             this.characterLabel.TabIndex = 24;
             this.characterLabel.Text = "Characters";
             // 
-            // diceLabel
+            // damageTextBox
             // 
-            this.diceLabel.AutoSize = true;
-            this.diceLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diceLabel.Location = new System.Drawing.Point(243, 232);
-            this.diceLabel.Name = "diceLabel";
-            this.diceLabel.Size = new System.Drawing.Size(50, 25);
-            this.diceLabel.TabIndex = 25;
-            this.diceLabel.Text = "Dice";
+            this.damageTextBox.Location = new System.Drawing.Point(248, 353);
+            this.damageTextBox.Name = "damageTextBox";
+            this.damageTextBox.Size = new System.Drawing.Size(45, 35);
+            this.damageTextBox.TabIndex = 26;
+            // 
+            // iniModLabel
+            // 
+            this.iniModLabel.AutoSize = true;
+            this.iniModLabel.Location = new System.Drawing.Point(12, 401);
+            this.iniModLabel.Name = "iniModLabel";
+            this.iniModLabel.Size = new System.Drawing.Size(79, 30);
+            this.iniModLabel.TabIndex = 27;
+            this.iniModLabel.Text = "IniMod";
+            // 
+            // iniMod
+            // 
+            this.iniMod.AutoSize = true;
+            this.iniMod.Location = new System.Drawing.Point(87, 402);
+            this.iniMod.Name = "iniMod";
+            this.iniMod.Size = new System.Drawing.Size(88, 30);
+            this.iniMod.TabIndex = 28;
+            this.iniMod.Text = "<none>";
+            // 
+            // sortByIniModButton
+            // 
+            this.sortByIniModButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.sortByIniModButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sortByIniModButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.sortByIniModButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sortByIniModButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sortByIniModButton.Location = new System.Drawing.Point(248, 237);
+            this.sortByIniModButton.Name = "sortByIniModButton";
+            this.sortByIniModButton.Size = new System.Drawing.Size(181, 43);
+            this.sortByIniModButton.TabIndex = 29;
+            this.sortByIniModButton.Text = "Sort By IniMod";
+            this.sortByIniModButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.sortByIniModButton.UseVisualStyleBackColor = true;
+            this.sortByIniModButton.Click += new System.EventHandler(this.sortByIniModButton_Click);
             // 
             // InitiativeTrackerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(441, 530);
-            this.Controls.Add(this.diceLabel);
+            this.ClientSize = new System.Drawing.Size(441, 481);
+            this.Controls.Add(this.sortByIniModButton);
+            this.Controls.Add(this.iniMod);
+            this.Controls.Add(this.iniModLabel);
+            this.Controls.Add(this.damageTextBox);
             this.Controls.Add(this.characterLabel);
-            this.Controls.Add(this.diceDropDown);
-            this.Controls.Add(this.rollDiceButton);
+            this.Controls.Add(this.rollInitiativeButton);
             this.Controls.Add(this.characterDropDown);
             this.Controls.Add(this.removeCharacterButton);
-            this.Controls.Add(this.addEffectButton);
             this.Controls.Add(this.addDamageButton);
-            this.Controls.Add(this.effects);
             this.Controls.Add(this.notes);
             this.Controls.Add(this.healthAmount);
             this.Controls.Add(this.characterName);
-            this.Controls.Add(this.initiativeEffectsLabel);
             this.Controls.Add(this.initiativeNoteLabel);
             this.Controls.Add(this.initiativeHealthLabel);
             this.Controls.Add(this.initiativeNameLabel);
@@ -311,18 +302,17 @@
         private System.Windows.Forms.Label initiativeNoteLabel;
         private System.Windows.Forms.Label initiativeHealthLabel;
         private System.Windows.Forms.Label initiativeNameLabel;
-        private System.Windows.Forms.Label initiativeEffectsLabel;
         private System.Windows.Forms.Label characterName;
         private System.Windows.Forms.Label healthAmount;
         private System.Windows.Forms.Label notes;
-        private System.Windows.Forms.Label effects;
         private System.Windows.Forms.Button addDamageButton;
-        private System.Windows.Forms.Button addEffectButton;
         private System.Windows.Forms.Button removeCharacterButton;
         private System.Windows.Forms.ComboBox characterDropDown;
-        private System.Windows.Forms.Button rollDiceButton;
-        private System.Windows.Forms.ComboBox diceDropDown;
+        private System.Windows.Forms.Button rollInitiativeButton;
         private System.Windows.Forms.Label characterLabel;
-        private System.Windows.Forms.Label diceLabel;
+        private System.Windows.Forms.TextBox damageTextBox;
+        private System.Windows.Forms.Label iniModLabel;
+        private System.Windows.Forms.Label iniMod;
+        private System.Windows.Forms.Button sortByIniModButton;
     }
 }
