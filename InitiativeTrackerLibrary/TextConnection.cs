@@ -41,22 +41,6 @@ namespace InitiativeTrackerLibrary
             return model;
         }
 
-        //public CharacterCreationModel DeleteCharacter (CharacterCreationModel mod)
-        //{
-        //    List<CharacterCreationModel> charToDel = CharactersFile.FullFilePath().LoadFile().ConvertToCharacterCreationModels();
-        //    int currentId = 1;
-        //    if (charToDel.Count > 0)
-        //    {
-        //        currentId = charToDel.OrderByDescending(x => x.Id).First().Id + 1;
-        //    }
-        //    mod.Id = currentId;
-
-        //    charToDel.Remove(mod);
-        //    charToDel.Add(mod);
-
-        //    return mod;
-        //}
-
 
         public List<CharacterCreationModel> GetCharacter_All()
         {

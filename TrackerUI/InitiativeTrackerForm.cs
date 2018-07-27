@@ -43,10 +43,6 @@ namespace TrackerUI
             TextConnection textcon = new TextConnection();
             availableCharacters = textcon.GetCharacter_All();
         }
-        /* Mål är att medan man har selectat en karaktär i initiativeListBox så ska relevant data bli displayad under till.
-         * Kanske måste jag göra en ny lista av datan i CharacterCreationModels eller avnända availableCharacter.
-         * 
-         */
 
         private void WireUpList()
         {
@@ -95,37 +91,6 @@ namespace TrackerUI
                 WireUpList();
             }
         }
-
-
-        /*private void displayCharacterStats()
-        {
-            CharacterCreationModel cdisplay = (CharacterCreationModel)initiativeListBox.SelectedItem;
-
-
-            if (cdisplay != null)
-            {
-                characterName.Text = "-";
-                healthAmount.Text = "-";
-                notes.Text = "-";
-
-                CheckCharacterData();
-                WireUpList();
-
-
-            }
-
-            else
-            {
-                characterName.Text = "-";
-                healthAmount.Text = "-";
-                notes.Text = "-";
-            }
-        }
-
-            TODO When adding damage the number of the damage is added to a secret number that starts with 0.
-                 That number is then subtracted to the character health by:
-                 healthAmount.Text = withdamage (int withdamage = cdisplay.CharHealth - secretnumber);
-        */
 
         private void initiativeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -184,24 +149,10 @@ namespace TrackerUI
         private void rollInitiativeButton_Click(object sender, EventArgs e)
         {
 
-            /*
-            * Sortera dem efter IniMod + en randomiserad integer. Kanske med dåld parameter i listbox objektet som börjar på 0.
-            * För med dåld parameter kan jag göra en foreachloop.
-            * foreach (object in initiativeListBox)
-            * Random random = new Random();
-            * int diceroll = random(1, 100)
-            * dåldparameter = diceroll + IniMod
-            * SortBy.dåldparameter
-            * 
-            * ALTERNATIVT
-            * Ta bort föremålen i initiativeListBox samtidigt som jag lägger till dem i en temporär List<>.
-            * Därefter gör jag en foreach-loop där IniMod + randomNumber får bestämma ordningen som de läggs in i 
-            * initiativeListBox.
-            */
+
 
             
             CharacterCreationModel Selected = (CharacterCreationModel)initiativeListBox.SelectedItem;
-            //ListBox.ObjectCollection list = initiativeListBox.Items;
             int n = initiativeListBox.Items.Count;
             int y = initiativeListBox.Items.Count;
             Random rng = new Random();
@@ -209,12 +160,6 @@ namespace TrackerUI
             int z = 0;
 
 
-            /*
-            if (this.initiativeListBox.Items.Count > 0)
-            {
-                this.initiativeListBox.SelectedIndex = 0;
-            }
-            */
 
             
             while(n > 0)

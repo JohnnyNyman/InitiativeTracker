@@ -6,10 +6,6 @@ namespace InitiativeTrackerLibrary.Models
 {
     public class CharacterCreationModel
     {
-        // TODO Connect to form where user can type in Name and HP
-        // TODO Connect to save character button.
-
-
         //The unique identifier for the character.
         public int Id { get; set; }
 

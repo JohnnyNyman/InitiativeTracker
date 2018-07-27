@@ -24,18 +24,7 @@ namespace TrackerUI
 
             //Initialize the database connections
             InitiativeTrackerLibrary.GlobalConfig.InitializeConnections(InitiativeTrackerLibrary.DataBaseType.TextFile);
-            //OpenFormOnClose = false;
             Application.Run(new CharacterListForm());
-
-
-            //if (OpenFormOnClose)
-            //{
-            //    Application.Run(new CharacterCreationForm());
-            //}
-            //if (!OpenFormOnClose)
-            //{
-            //    Application.Run(new CharacterListForm());
-            //}
 
         }
     }
